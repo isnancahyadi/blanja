@@ -13,6 +13,7 @@ import LoginSeller from "./pages/LoginSeller";
 import Products from "./pages/Products";
 import Detail from "./pages/Detail";
 import Profile from "./pages/profile/Profile"
+import Checkout from "./pages/Checkout";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "/checkout",
+    element: <Checkout />,
   },
 ]);
 
