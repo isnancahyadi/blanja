@@ -1,0 +1,83 @@
+
+
+.page-content {
+  position: absolute;
+  background-color: white;
+  width: 65%;
+  height: 75%;
+  top: 130px;
+  left: 400px;
+  padding: 10px 10px;
+  z-index: 100;
+  border-radius: 5px;
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content p {
+  white-space: nowrap;
+  color: #9b9b9b;
+}
+
+.page-content hr {
+  border-width: 1px;
+  border-color: #9b9b9b;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.btn-label label {
+  display: block;
+  position: relative;
+  border-width: 1px;
+  border-style: solid;
+  color: #9b9b9b;
+  font-size: 13px;
+  text-align: center;
+  width: 130px;
+  padding: 8px 5px;
+  border-radius: 40px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.input-group-append {
+  cursor: pointer;
+}
+
+.page-content button {
+  position: absolute;
+  background-color: #db3022 !important;
+  border: none;
+  color: white;
+  border-radius: 22px;
+  text-decoration: none;
+  right: 600px;
+  left: 165px;
+  padding: 10px 25px;
+}
+
+// .shipping-address button{
+// position: absolute;
+//  border-style: dashed;
+//  border-width: 2px;
+//  border-radius: 10px;
+//  width: 750px;
+//  height: 86px;
+//  right: 0;
+// left: 70px;
+//  background-color:transparent !important;
+//  color: #9B9B9B;
+//  font-weight: 600;
+//     cursor: pointer;
+
+// }
+
+// .center h4{
+//     position: absolute;
+//     text-align: center !important;
+//     right: 170px;
+// }
