@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
 import Bv4 from "../../components/Bv4";
-import "../../style/pages/Profile.scss"
+import "../../style/pages/Profile.scss";
 import Sidebar from "../../components/Sidebar";
 function Profile() {
   return (
     <>
-      <Bv4 />
       <Navbar />
+      <Bv4 />
       <Sidebar />
       <main id="main" className="page-content">
         <div className="container-fluid">
@@ -15,10 +15,8 @@ function Profile() {
           <p>Manage your profile information</p>
           <hr />
 
-         
           <form action="">
             <div className="row mt-4">
-              
               <div className="col-md-8 border-right">
                 <div className="mb-3 row ">
                   <label for="name" className="col-sm-3 col-form-label">
@@ -64,14 +62,14 @@ function Profile() {
                   />
                 </div>
 
-              {/* --  input only image  --  */}
+                {/* --  input only image  --  */}
                 <input type="file" id="upload-image" accept="image/*" />
                 <label htmlFor="upload-image" className="mt-3">
                   Select image
                 </label>
               </div>
 
-             {/* --Gender-- */}
+              {/* --Gender-- */}
 
               <div className="col-md-8 ">
                 <div className="mb-3 row ">
@@ -126,10 +124,9 @@ function Profile() {
             <button type="submit" class="btn btn-primary mt-3 ">
               Save
             </button>
-          </form> 
+          </form>
         </div>
       </main>
-      
     </>
   );
 }
