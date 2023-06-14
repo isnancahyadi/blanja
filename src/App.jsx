@@ -26,6 +26,8 @@ import {
   faStar,
   faMinus,
   faPlus,
+  faPencil,
+  faCalendarDays,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
   faSliders,
@@ -34,7 +36,9 @@ library.add(
   faBars,
   faStar,
   faMinus,
-  faPlus
+  faPlus,
+  faPencil,
+  faCalendarDays
 );
 
 const router = createBrowserRouter([
@@ -70,7 +74,6 @@ const router = createBrowserRouter([
     path: "/checkout",
     element: <Checkout />,
   },
-  
   {
     path: "/profile",
     element: <Profile />,
@@ -83,7 +86,6 @@ const router = createBrowserRouter([
     path: "/my-order",
     element: <MyOrder />,
   },
- 
 ]);
 
 function App() {
