@@ -7,7 +7,7 @@ import ProductCard from "../components/ProductCard";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
-import axios from 'axios';
+import axios from "axios";
 
 function Detail() {
   const location = useLocation();
@@ -34,14 +34,12 @@ function Detail() {
       .catch((err) => {
         console.log(err);
       });
-    axios
-      .get(`${process.env.REACT_APP_BASE_URL}/product/?category=${currentProduct?.category}`)
-      .then((response) => {
-        const relatedProductData = response?.data?.data;
-        setProductList(relatedProductData);
-      });
-
-
+    // axios
+    //   .get(`${process.env.REACT_APP_BASE_URL}/product/?category=${currentProduct?.category}`)
+    //   .then((response) => {
+    //     const relatedProductData = response?.data?.data;
+    //     setProductList(relatedProductData);
+    //   });
   }, []);
 
   useEffect(() => {
@@ -84,20 +82,19 @@ function Detail() {
   const handleBuyNow = () => {
     console.log(currentProduct);
     axios
-    .post(`${process.env.REACT_APP_BASE_URL}/checkout`, {
+      .post(`${process.env.REACT_APP_BASE_URL}/checkout`, {
         product_id: currentProduct?.id,
-        count_size: countSize,
-        count_amount: countAmount,
-        color_id: selectedColor,
+        product_size: countSize,
+        product_color: selectedColor,
+        total_product: countAmount,
       })
-    .then((result) => {
+      .then((result) => {
         console.log(result);
       })
-    .catch((err) => {
+      .catch((err) => {
         console.log(err);
       });
   };
-
 
   return (
     <div className="DetailProduct">
@@ -116,8 +113,9 @@ function Detail() {
             <div className="d-flex mt-3 justify-content-center overflow-hidden">
               <div className="col-auto">
                 <img
-                  className={`img-product-small ${isActive === 0 ? "active" : ""
-                    }`}
+                  className={`img-product-small ${
+                    isActive === 0 ? "active" : ""
+                  }`}
                   src={currentProduct?.path[0]?.photo_path}
                   alt="Image Product"
                   onClick={(e) =>
@@ -127,8 +125,9 @@ function Detail() {
               </div>
               <div className="col-auto">
                 <img
-                  className={`img-product-small ${isActive === 1 ? "active" : ""
-                    }`}
+                  className={`img-product-small ${
+                    isActive === 1 ? "active" : ""
+                  }`}
                   src={currentProduct?.path[1]?.photo_path}
                   alt="Image Product"
                   onClick={(e) =>
@@ -138,8 +137,9 @@ function Detail() {
               </div>
               <div className="col-auto">
                 <img
-                  className={`img-product-small ${isActive === 2 ? "active" : ""
-                    }`}
+                  className={`img-product-small ${
+                    isActive === 2 ? "active" : ""
+                  }`}
                   src={currentProduct?.path[2]?.photo_path}
                   alt="Image Product"
                   onClick={(e) =>
@@ -149,8 +149,9 @@ function Detail() {
               </div>
               <div className="col-auto">
                 <img
-                  className={`img-product-small ${isActive === 3 ? "active" : ""
-                    }`}
+                  className={`img-product-small ${
+                    isActive === 3 ? "active" : ""
+                  }`}
                   src={currentProduct?.path[3]?.photo_path}
                   alt="Image Product"
                   onClick={(e) =>
@@ -206,8 +207,9 @@ function Detail() {
               <h6 className="text fw-bold mt-5">Color</h6>
               <div className="row">
                 <div
-                  className={`d-flex select-color col-auto rounded-circle ${selectedColor === 0 ? "active" : ""
-                    }`}
+                  className={`d-flex select-color col-auto rounded-circle ${
+                    selectedColor === 0 ? "active" : ""
+                  }`}
                   onClick={(e) => changeColor(0)}
                 >
                   <div
@@ -216,8 +218,9 @@ function Detail() {
                   />
                 </div>
                 <div
-                  className={`d-flex select-color col-auto rounded-circle ${selectedColor === 1 ? "active" : ""
-                    }`}
+                  className={`d-flex select-color col-auto rounded-circle ${
+                    selectedColor === 1 ? "active" : ""
+                  }`}
                   onClick={(e) => changeColor(1)}
                 >
                   <div
@@ -226,8 +229,9 @@ function Detail() {
                   />
                 </div>
                 <div
-                  className={`d-flex select-color col-auto rounded-circle ${selectedColor === 2 ? "active" : ""
-                    }`}
+                  className={`d-flex select-color col-auto rounded-circle ${
+                    selectedColor === 2 ? "active" : ""
+                  }`}
                   onClick={(e) => changeColor(2)}
                 >
                   <div
@@ -236,8 +240,9 @@ function Detail() {
                   />
                 </div>
                 <div
-                  className={`d-flex select-color col-auto rounded-circle ${selectedColor === 3 ? "active" : ""
-                    }`}
+                  className={`d-flex select-color col-auto rounded-circle ${
+                    selectedColor === 3 ? "active" : ""
+                  }`}
                   onClick={(e) => changeColor(3)}
                 >
                   <div
@@ -335,13 +340,13 @@ function Detail() {
                   </button>
                 </div> */}
                 <div className="col-md-6">
-                    <button
-                      id="btn-buy"
-                      type="button"
-                      className="btn btn-primary border-2 rounded-pill"
-                    >
-                      Buy Now
-                    </button>
+                  <button
+                    id="btn-buy"
+                    type="button"
+                    className="btn btn-primary border-2 rounded-pill"
+                  >
+                    Buy Now
+                  </button>
                 </div>
               </div>
             </div>
@@ -355,7 +360,9 @@ function Detail() {
         </div>
         <div id="condition" className="row mt-5">
           <h4>Condition</h4>
-          <h4 style={{ color: "#DB3022" }}>{currentProduct?.product_condition}</h4>
+          <h4 style={{ color: "#DB3022" }}>
+            {currentProduct?.product_condition}
+          </h4>
         </div>
         <div id="description" className="row mt-5">
           <h4>Description</h4>
@@ -592,20 +599,18 @@ function Detail() {
             <p className="text-muted lh-1">You’ve never seen it before!</p>
           </div>
           <div className="row row-cols-md-5 rows-cols-xs-2">
-            {
-              productList.map((product) => (
-                <div className="col">
-                  <ProductCard
-                    productId={product?.product_id}
-                    image={product?.path[0].photo_path}
-                    title={product?.product_name}
-                    price={product?.product_price}
-                    storeName={"Code Crafters"}
-                    rating={"4.8"}
-                  />
-                </div>
-              ))
-            }
+            {productList.map((product) => (
+              <div className="col">
+                <ProductCard
+                  productId={product?.product_id}
+                  image={product?.path[0].photo_path}
+                  title={product?.product_name}
+                  price={product?.product_price}
+                  storeName={"Code Crafters"}
+                  rating={"4.8"}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

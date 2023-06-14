@@ -1,10 +1,10 @@
 import React from "react";
-import "../style/pages/Login.scss"
+import "../style/pages/Login.scss";
 import { Link } from "react-router-dom";
 
 function LoginSeller() {
   return (
-    <>
+    <div className="Login">
       <div className="container">
         <div className="row justify-content-center align-items-center vh-100">
           <div className="col-md-4 col-xs-12">
@@ -108,7 +108,7 @@ function LoginSeller() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

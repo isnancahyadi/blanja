@@ -1,10 +1,10 @@
 import React from "react";
-import "../style/pages/Login.scss"
+import "../style/pages/Login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
-import { addAuth } from '../reducers/auth';
+import { addAuth } from "../reducers/auth";
 
 function Login() {
   const navigate = useNavigate();
@@ -46,7 +46,10 @@ function Login() {
           localStorage.setItem("auth", "true");
           localStorage.setItem("userId", result?.data?.data?.user?.id);
           localStorage.setItem("userName", result?.data?.data?.user?.name);
-          localStorage.setItem("userPhoto", result?.data?.data?.user?.profile_photo);
+          localStorage.setItem(
+            "userPhoto",
+            result?.data?.data?.user?.profile_photo
+          );
           localStorage.setItem("token", result?.data?.data?.token);
           dispatch(addAuth(result));
           navigate("/");
@@ -62,9 +65,8 @@ function Login() {
       });
   };
 
-
   return (
-    <>
+    <div className="Login">
       <div className="container">
         <div className="row justify-content-center align-items-center vh-100">
           <div className="col-md-4 col-xs-12">
@@ -101,7 +103,6 @@ function Login() {
               <input
                 type="radio"
                 className="btn-check"
-
                 name="btnradio"
                 id="seller"
                 autocomplete="off"
@@ -117,7 +118,8 @@ function Login() {
             <form
               onSubmit={(event) => {
                 event.preventDefault();
-              }}>
+              }}
+            >
               <div>
                 <label for="exampleInputEmail1" className="form-label"></label>
                 <input
@@ -174,7 +176,7 @@ function Login() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -1,15 +1,15 @@
 import React from "react";
-import "../style/pages/Register.scss"
+import "../style/pages/Register.scss";
 import { Link } from "react-router-dom";
 
 function RegisterSeller() {
   return (
-    <>
+    <div className="Register">
       <div className="container">
         <div className="row justify-content-center align-items-center vh-100">
           <div className="col-md-4 col-xs-12">
             <img
-             src="/assets/logo.png"
+              src="/assets/logo.png"
               alt="logo"
               className="rounded mx-auto d-block mb-4"
             />
@@ -131,7 +131,7 @@ function RegisterSeller() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
