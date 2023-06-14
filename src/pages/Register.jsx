@@ -1,6 +1,6 @@
 import React from "react";
-import "../style/pages/Register.scss"
-import { Link, useNavigate } from "react-router-dom"
+import "../style/pages/Register.scss";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -18,7 +18,6 @@ function Register() {
   }, []);
 
   const handleRegister = () => {
-
     // show loading before axios finish
     Swal.fire({
       title: "Please wait...",
@@ -55,10 +54,8 @@ function Register() {
       });
   };
 
-
-
   return (
-    <>
+    <div className="Register">
       <div className="container">
         <div className="row justify-content-center align-items-center vh-100">
           <div className="col-md-4 col-xs-12">
@@ -83,7 +80,6 @@ function Register() {
                 value="custommer"
                 id="custommer"
                 autocomplete="off"
-
                 checked
               />
 
@@ -102,7 +98,6 @@ function Register() {
                 name="btnradio"
                 id="seller"
                 autocomplete="off"
-
               />
               <label
                 style={{ height: "50px", width: "150px" }}
@@ -115,7 +110,8 @@ function Register() {
             <form
               onSubmit={(event) => {
                 event.preventDefault();
-              }}>
+              }}
+            >
               <div>
                 <label for="name" className="form-label"></label>
                 <input
@@ -166,17 +162,14 @@ function Register() {
 
             <small className="d-block text-center text-muted mt-4">
               Already have a account?
-              <Link
-                className="text-danger text-decoration-none"
-                to={"/login"}
-              >
+              <Link className="text-danger text-decoration-none" to={"/login"}>
                 Login
               </Link>
             </small>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -32,11 +32,8 @@ function Dashboard() {
 
   return (
     <div className="Dashboard">
-      <div className="row">
-        {/* <div className="row"> */}
-        <Navbar />
-        {/* </div> */}
-
+      <Navbar />
+      <div className="main row">
         <section id="carousel" className="container">
           <CarouselHome />
         </section>

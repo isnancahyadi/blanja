@@ -1,7 +1,10 @@
 .ProductList {
   #category {
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: 25px;
+    display: flex;
+    // position: absolute;
+    top: 100px;
   }
 
   @media only screen and (max-width: 575px) {

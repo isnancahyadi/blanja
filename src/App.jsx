@@ -17,6 +17,9 @@ import LoginSeller from "./pages/LoginSeller";
 import Products from "./pages/Products";
 import Detail from "./pages/Detail";
 import Checkout from "./pages/Checkout";
+import Profile from "./pages/profile/Profile";
+import ShipingAddres from "./pages/profile/ShipingAddres";
+import MyOrder from "./pages/profile/MyOrder";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -27,6 +30,8 @@ import {
   faStar,
   faMinus,
   faPlus,
+  faPencil,
+  faCalendarDays,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
   faSliders,
@@ -35,7 +40,9 @@ library.add(
   faBars,
   faStar,
   faMinus,
-  faPlus
+  faPlus,
+  faPencil,
+  faCalendarDays
 );
 
 const router = createBrowserRouter([
@@ -70,6 +77,18 @@ const router = createBrowserRouter([
   {
     path: "/checkout",
     element: <Checkout />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+  },
+  {
+    path: "/shipping-address",
+    element: <ShipingAddres />,
+  },
+  {
+    path: "/my-order",
+    element: <MyOrder />,
   },
 ]);
 
