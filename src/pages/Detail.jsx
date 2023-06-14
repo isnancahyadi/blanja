@@ -4,12 +4,13 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
 
 function Detail() {
+  const navigate = useNavigate();
   const location = useLocation();
   const [imageId, setImageId] = useState(null);
   const [isActive, setIsActive] = useState(null);
@@ -80,16 +81,20 @@ function Detail() {
 
   // Function to handle buy now button
   const handleBuyNow = () => {
-    console.log(currentProduct);
+    const currentId = location.pathname.split("/")[2];
     axios
-      .post(`${process.env.REACT_APP_BASE_URL}/checkout`, {
-        product_id: currentProduct?.id,
-        product_size: countSize,
-        product_color: selectedColor,
-        total_product: countAmount,
+      .post(`${process.env.REACT_APP_BASE_URL}/product/createOrder`, null, {
+        params: {
+          product_id: currentId,
+          product_size: countSize,
+          product_color: 'Red',
+          total_product: countAmount,
+        }
       })
       .then((result) => {
         console.log(result);
+        localStorage.setItem('checkout', JSON.stringify(result?.data?.data));
+        navigate("/checkout");
       })
       .catch((err) => {
         console.log(err);
@@ -344,6 +349,7 @@ function Detail() {
                     id="btn-buy"
                     type="button"
                     className="btn btn-primary border-2 rounded-pill"
+                    onClick={handleBuyNow}
                   >
                     Buy Now
                   </button>
